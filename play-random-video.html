@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>play random video</title>
+    <style>
+        video {
+            border: 1px solid #000;
+            width: 200px;
+            height: 150px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <button id="clickBtn">random video</button>
+    <video id="myVideo">
+        <source id="videoSource" src="../../../ax/MVI_7226.MOV" type="video/mp4">
+        Sorry, your browser does not support HTML5 video.
+    </video>
+
+    <script>
+        // address of some videos
+        var fileNames = ["../../../ax/MVI_6498.MOV", "../../../ax/MVI_7117.MOV", "../../../ax/MVI_7226.MOV"];
+        
+        // click to pick a random video and play
+        document.getElementById("clickBtn").addEventListener("click", function() {
+            document.getElementById("myVideo").pause();
+            
+            var rndm = Math.floor(Math.random() * 3);
+            console.log(rndm);
+            document.getElementById("videoSource").setAttribute("src", fileNames[rndm]);
+            document.getElementById("myVideo").load();
+            document.getElementById("myVideo").play();
+        });
+
+    </script>
+</body>
+
+</html>
